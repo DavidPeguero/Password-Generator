@@ -2,8 +2,8 @@
 var generateBtn = document.querySelector("#generate");
 
 // Options section and buttons variables
-var optionsList = document.getElementById("options")
-var submit_options = document.getElementById("submit-options")
+var optionsList = document.querySelector("#options")
+var submit_options = document.querySelector("#submit-options")
 
 
 //Initialize visibility to hidden and set a flag corresponding to said state
