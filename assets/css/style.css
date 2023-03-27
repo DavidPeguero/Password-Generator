@@ -135,7 +135,13 @@ button[disabled] {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  align-items: flex-start;
 }
+.submit-options{
+  display: flex;
+  justify-content: space-around;
+}
+
 
 @media (max-width: 500px) {
   .btn {

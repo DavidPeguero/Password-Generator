@@ -57,6 +57,7 @@ function setOptions(){
   //If there if at least one character type allowed 
   if(possibleChars.length != 0){
     generatePassword();
+    generateBtn.removeAttribute('disabled')
     optionsList.style.visibility = 'hidden';
   }
 }
@@ -83,6 +84,7 @@ function generatePassword(){
 // Write password to the #password input
 function writePassword() {
   optionsList.style.visibility = 'visible'
+  generateBtn.setAttribute('disabled', true)
 }
 
 // Add event listener to generate button
