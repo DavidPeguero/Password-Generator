@@ -39,6 +39,9 @@ function setOptions(){
   var numeric = document.getElementById('numeric').checked;
   var special = document.getElementById('special').checked;
 
+  //Reset possible chars for password so last password options do not carry overgi
+  possibleChars = ''
+
   //If checked add the possible chars for the pass to an array
   if(lowercase){
     possibleChars = possibleChars + lowercaseChars;
