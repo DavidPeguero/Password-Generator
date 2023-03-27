@@ -30,7 +30,7 @@ var specialChars = ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 //Possible chars after options
 var possibleChars = '';
 
-
+//Sets Options and then generates password
 function setOptions(){
 
   //Get all the checked box statuses 
@@ -76,15 +76,12 @@ function generatePassword(){
     password = password + possibleChars.charAt(Math.floor(Math.random() * pLength))
   }
 
-  console.log(pLength);
-  console.log(password);
-
   //Insert the text into the HTML password textarea
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
 
-// Write password to the #password input
+// Begins the flow to write the password to screen
 function writePassword() {
   optionsList.style.visibility = 'visible'
   generateBtn.setAttribute('disabled', true)
