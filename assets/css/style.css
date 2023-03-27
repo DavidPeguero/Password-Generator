@@ -130,6 +130,13 @@ button[disabled] {
   }
 }
 
+/* Organize the checkbox contents in the options sections */
+.options{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 @media (max-width: 500px) {
   .btn {
     font-size: 0.8rem;

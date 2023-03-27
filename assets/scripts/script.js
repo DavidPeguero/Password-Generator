@@ -53,7 +53,7 @@ function setOptions(){
     possibleChars = possibleChars + specialChars;
   }
 
-  console.log(possibleChars);
+
   //If there if at least one character type allowed 
   if(possibleChars.length != 0){
     generatePassword();
