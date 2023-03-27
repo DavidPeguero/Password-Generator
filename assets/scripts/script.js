@@ -11,12 +11,14 @@ optionsList.style.visibility = 'hidden';
 
 
 //Set options to false by default
+document.getElementById('password-length').value = ''
 document.getElementById('lowercase').checked = false;
 document.getElementById('uppercase').checked = false;
 document.getElementById('numeric').checked = false;
 document.getElementById('special').checked = false;
 
 document.querySelector("#password").value = '';
+
 
 
 
@@ -39,8 +41,10 @@ function setOptions(){
   var numeric = document.getElementById('numeric').checked;
   var special = document.getElementById('special').checked;
 
+  
+  var desiredLength = document.getElementById('password-length');
   //Reset possible chars for password so last password options do not carry overgi
-  possibleChars = ''
+  possibleChars = '';
 
   //If checked add the possible chars for the pass to an array
   if(lowercase){
@@ -56,24 +60,34 @@ function setOptions(){
     possibleChars = possibleChars + specialChars;
   }
 
-
-  //If there if at least one character type allowed 
-  if(possibleChars.length != 0){
-    generatePassword();
-    generateBtn.removeAttribute('disabled')
-    optionsList.style.visibility = 'hidden';
+  
+  //If not valid length
+  if(desiredLength < 8 || desiredLength >  128){
+    alert('Desired Length Must be between 8 and 128 characters');
   }
+  //If there is no character type allowed 
+  else if(possibleChars.length === 0){
+    alert('No character types selected');
+    
+  }
+  else{
+    //I'm passing in the desired length and converting it to a number as well
+    generatePassword(desiredLength.value);
+    generateBtn.removeAttribute('disabled');
+    optionsList.style.visibility = 'hidden';
+    
+  }
+
+
 }
 
 
-function generatePassword(){
+function generatePassword(pLength){
   var password = ''
-  //Generate length randomly
-  pLength = Math.floor(Math.random() * (128 - 8) + 8);
 
-  //Get a random char from the list of possible chars until it is as long as the randomized password length
+  //Get a random char from the list of possible chars until it is as long as the desired password length
   for(var i = 0; i < pLength; i++){
-    password = password + possibleChars.charAt(Math.floor(Math.random() * pLength))
+    password = password + possibleChars.charAt(Math.floor(Math.random() * possibleChars.length))
   }
 
   //Insert the text into the HTML password textarea
