@@ -42,7 +42,7 @@ function setOptions(){
   var special = document.getElementById('special').checked;
 
   
-  var desiredLength = document.getElementById('password-length');
+  var desiredLength = document.getElementById('password-length').value;
   //Reset possible chars for password so last password options do not carry overgi
   possibleChars = '';
 
@@ -62,7 +62,7 @@ function setOptions(){
 
   
   //If not valid length
-  if(desiredLength < 8 || desiredLength >  128){
+  if(desiredLength < 8 || desiredLength > 128){
     alert('Desired Length Must be between 8 and 128 characters');
   }
   //If there is no character type allowed 
@@ -72,10 +72,9 @@ function setOptions(){
   }
   else{
     //I'm passing in the desired length and converting it to a number as well
-    generatePassword(desiredLength.value);
+    generatePassword(desiredLength);
     generateBtn.removeAttribute('disabled');
     optionsList.style.visibility = 'hidden';
-    
   }
 
 
